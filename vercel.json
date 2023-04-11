@@ -1,7 +1,17 @@
 {
   "trailingSlash": false,
-  "rewrites":
-  [
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "/api",
+      "permanent": true
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/api",
+      "destination": "/api/entrypoint.go"
+    },
     {
       "source": "/api/(.*)",
       "destination": "/api/entrypoint.go"

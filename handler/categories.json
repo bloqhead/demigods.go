@@ -1,0 +1,122 @@
+[
+  {
+    "label": "Glintstone Staff",
+    "value": "glintstone-staff"
+  },
+  {
+    "label": "Greatsword",
+    "value": "greatsword"
+  },
+  {
+    "label": "Light Bow",
+    "value": "light-bow"
+  },
+  {
+    "label": "Thrusting Sword",
+    "value": "thrusting-sword"
+  },
+  {
+    "label": "Crossbow",
+    "value": "crossbow"
+  },
+  {
+    "label": "Colossal Weapon",
+    "value": "colossal-weapon"
+  },
+  {
+    "label": "Great Axe",
+    "value": "great-axe"
+  },
+  {
+    "label": "Curved Sword",
+    "value": "curved-sword"
+  },
+  {
+    "label": "Halberd",
+    "value": "halberd"
+  },
+  {
+    "label": "Flail",
+    "value": "flail"
+  },
+  {
+    "label": "Axe",
+    "value": "axe"
+  },
+  {
+    "label": "Warhammer",
+    "value": "warhammer"
+  },
+  {
+    "label": "Torchs",
+    "value": "torchs"
+  },
+  {
+    "label": "Curved Greatsword",
+    "value": "curved-greatsword"
+  },
+  {
+    "label": "Dagger",
+    "value": "dagger"
+  },
+  {
+    "label": "Claw",
+    "value": "claw"
+  },
+  {
+    "label": "Heavy Thrusting Sword",
+    "value": "heavy-thrusting-sword"
+  },
+  {
+    "label": "Spear",
+    "value": "spear"
+  },
+  {
+    "label": "Straight Sword",
+    "value": "straight-sword"
+  },
+  {
+    "label": "Fist",
+    "value": "fist"
+  },
+  {
+    "label": "Sacred Seal",
+    "value": "sacred-seal"
+  },
+  {
+    "label": "Hammer",
+    "value": "hammer"
+  },
+  {
+    "label": "Katana",
+    "value": "katana"
+  },
+  {
+    "label": "Twinblades",
+    "value": "twinblades"
+  },
+  {
+    "label": "Great Bow",
+    "value": "great-bow"
+  },
+  {
+    "label": "Whip",
+    "value": "whip"
+  },
+  {
+    "label": "Colossal Sword",
+    "value": "colossal-sword"
+  },
+  {
+    "label": "Reaper",
+    "value": "reaper"
+  },
+  {
+    "label": "Ballista",
+    "value": "ballista"
+  },
+  {
+    "label": "Great Spear",
+    "value": "great-spear"
+  }
+]

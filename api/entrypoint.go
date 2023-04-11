@@ -22,6 +22,9 @@ func registerRouter(r *gin.RouterGroup) {
 	
 	// fetch by category
 	r.GET("/api/category/:category", handler.FetchByCategory)
+
+	// fetch category list
+	r.GET("/api/categories", handler.FetchCategories)
 }
 
 func ErrRouter(c *gin.Context) {
@@ -35,9 +38,9 @@ func init() {
 	// Handling routing errors
 	app.NoRoute(func(c *gin.Context) {
 		sb := &strings.Builder{}
-		sb.WriteString("routing err: no route, try this:\n")
+		sb.WriteString("Available routes:\n")
 		for _, v := range app.Routes() {
-			sb.WriteString(fmt.Sprintf("%s %s\n", v.Method, v.Path))
+			sb.WriteString(fmt.Sprintf("- %s %s\n", v.Method, v.Path))
 		}
 		c.String(http.StatusBadRequest, sb.String())
 	})

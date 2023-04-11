@@ -1,0 +1,19 @@
+{
+  "name": "demigods.go",
+  "version": "1.0.0",
+  "description": "Elden Ring weapons API built in Golang.",
+  "scripts": {
+    "vercel-dev": "vercel dev -d"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bloqhead/demigods.go.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bloqhead/demigods.go/issues"
+  },
+  "homepage": "https://github.com/bloqhead/demigods.go#readme"
+}
