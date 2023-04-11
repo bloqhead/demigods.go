@@ -326,7 +326,7 @@
     "id": 17,
     "name": "Beast-Repellent Torch",
     "tier": "B",
-    "category": "torchs",
+    "category": "torch",
     "scaling": {
       "str": "C",
       "dex": "E"
@@ -2098,7 +2098,7 @@
     "id": 110,
     "name": "Ghostflame Torch",
     "tier": "B",
-    "category": "torchs",
+    "category": "torch",
     "scaling": {
       "str": "E",
       "dex": "E",
@@ -4675,7 +4675,7 @@
     "id": 246,
     "name": "Sentry's Torch",
     "tier": "B",
-    "category": "torchs",
+    "category": "torch",
     "scaling": {
       "str": "D",
       "dex": "E",
@@ -4979,7 +4979,7 @@
     "id": 262,
     "name": "St. Trina's Torch",
     "tier": "B",
-    "category": "torchs",
+    "category": "torch",
     "scaling": {
       "str": "E",
       "dex": "D",
@@ -5097,7 +5097,7 @@
     "id": 268,
     "name": "Steel-Wire Torch",
     "tier": "C",
-    "category": "torchs",
+    "category": "torch",
     "scaling": {
       "str": "D",
       "dex": "C"
@@ -5233,7 +5233,7 @@
     "id": 275,
     "name": "Torch",
     "tier": "C",
-    "category": "torchs",
+    "category": "torch",
     "scaling": {
       "str": "D",
       "dex": "D"
