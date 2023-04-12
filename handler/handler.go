@@ -12,8 +12,8 @@ import (
 )
 
 type Category struct {
-	Label string `json:"label,omitempty"`
-	Value string `json:"value,omitempty"`
+	Label string `json:"label"`
+	Value string `json:"value"`
 }
 
 type Scaling struct {
@@ -46,35 +46,45 @@ type Weapon struct {
 var Weapons []Weapon
 var Categories []Category
 
+// embed our data (DO NOT MODIFY)
 //go:embed data.json
 //go:embed categories.json
 
 var data embed.FS
 
-func fetchData() {
-	content, err := data.ReadFile("data.json")
+func FetchData() {
+	dataset1, err1 := data.ReadFile("data.json")
 
-	if err != nil {
-		log.Fatal("Error opening data file: ", err)
+	if err1 != nil {
+		log.Fatal("Error opening data file: ", err1)
 	}
 
-	err = json.Unmarshal(content, &Weapons)
+	err1 = json.Unmarshal(dataset1, &Weapons)
 
-	if err != nil {
-		log.Fatal("Error during Unmarshal(): ", err)
+	if err1 != nil {
+		log.Fatal("Error during item Unmarshal(): ", err1)
+	}
+
+	dataset2, err2 := data.ReadFile("categories.json")
+
+	if err2 != nil {
+		log.Fatal("Error opening categories file: ", err2)
+	}
+
+	err2 = json.Unmarshal(dataset2, &Categories)
+
+	if err2 != nil {
+		log.Fatal("Error during categories Unmarshal(): ", err2)
 	}
 }
 
 // fetch all items
 func FetchAll(c *gin.Context) {
-	fetchData()
 	c.JSON(http.StatusOK, Weapons)
 }
 
 // find by ID
 func FetchById(c *gin.Context) {
-	fetchData()
-
 	id := c.Param("id")
 	items := make([]Weapon, 0, len(Weapons))
 	
@@ -97,8 +107,6 @@ func FetchById(c *gin.Context) {
 
 // find by category
 func FetchByCategory(c *gin.Context) {
-	fetchData()
-
 	category := c.Param("category")
 	items := make([]Weapon, 0, len(Weapons))
 	
@@ -124,18 +132,6 @@ func FetchByCategory(c *gin.Context) {
 
 // fetch category list
 func FetchCategories(c *gin.Context) {
-	content, err := data.ReadFile("categories.json")
-
-	if err != nil {
-		log.Fatal("Error opening data file: ", err)
-	}
-
-	err = json.Unmarshal(content, &Categories)
-
-	if err != nil {
-		log.Fatal("Error during Unmarshal(): ", err)
-	}
-
 	items := make([]Category, 0, len(Categories))
 	
 	for _, v := range Categories {
