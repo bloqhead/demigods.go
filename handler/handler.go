@@ -34,26 +34,27 @@ type Stat struct {
 }
 
 type Weapon struct {
-	ID int `json:"id"`
-	Name string `json:"name"`
-	Tier string `json:"tier"`
-	Category string `json:"category"`
-	Scaling Scaling `json:"scaling"`
-	Skill string `json:"skill"`
-	Stats Stat `json:"stats"`
+	ID int `json:"id,omitempty"`
+	Name string `json:"name,omitempty"`
+	Tier string `json:"tier,omitempty"`
+	Category string `json:"category,omitempty"`
+	Scaling Scaling `json:"scaling,omitempty"`
+	Skill string `json:"skill,omitempty"`
+	Stats Stat `json:"stats,omitempty"`
 }
 
 var Weapons []Weapon
 var Categories []Category
+var EmptyData = make([]string, 0, 0)
 
 // embed our data (DO NOT MODIFY)
-//go:embed data.json
-//go:embed categories.json
+//go:embed data/data.json
+//go:embed data/categories.json
 
 var data embed.FS
 
 func FetchData() {
-	dataset1, err1 := data.ReadFile("data.json")
+	dataset1, err1 := data.ReadFile("data/data.json")
 
 	if err1 != nil {
 		log.Fatal("Error opening data file: ", err1)
@@ -65,7 +66,7 @@ func FetchData() {
 		log.Fatal("Error during item Unmarshal(): ", err1)
 	}
 
-	dataset2, err2 := data.ReadFile("categories.json")
+	dataset2, err2 := data.ReadFile("data/categories.json")
 
 	if err2 != nil {
 		log.Fatal("Error opening categories file: ", err2)
@@ -80,7 +81,10 @@ func FetchData() {
 
 // fetch all items
 func FetchAll(c *gin.Context) {
-	c.JSON(http.StatusOK, Weapons)
+	c.JSON(http.StatusOK, gin.H{
+		"success": true,
+		"data": Weapons,
+	})
 }
 
 // find by ID
@@ -95,12 +99,15 @@ func FetchById(c *gin.Context) {
 	}
 
 	if len(items) > 0 {
-		c.JSON(http.StatusOK, items)
+		c.JSON(http.StatusOK, gin.H{
+			"success": true,
+			"data": items,
+		})
 	} else {
 		c.JSON(http.StatusOK, gin.H{
 			"success": true,
-			"status": "nodata",
 			"message": "No items found for ID " + id,
+			"data": EmptyData,
 		})
 	}
 }
@@ -120,12 +127,16 @@ func FetchByCategory(c *gin.Context) {
 	}
 
 	if len(items) > 0 {
-		c.JSON(http.StatusOK, items)
+		c.JSON(http.StatusOK, gin.H{
+			"success": true,
+			"data": items,
+		})
 	} else {
 		c.JSON(http.StatusOK, gin.H{
 			"success": true,
 			"status": "nodata",
 			"message": "No items found for category " + category,
+			"data": EmptyData,
 		})
 	}
 }
@@ -139,12 +150,16 @@ func FetchCategories(c *gin.Context) {
 	}
 
 	if len(items) > 0 {
-		c.JSON(http.StatusOK, items)
+		c.JSON(http.StatusOK, gin.H{
+			"success": true,
+			"data": items,
+		})
 	} else {
 		c.JSON(http.StatusOK, gin.H{
 			"success": true,
 			"status": "nodata",
 			"message": "No categories found",
+			"data": EmptyData,
 		})
 	}
 }
