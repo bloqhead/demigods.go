@@ -1,4 +1,4 @@
-package api
+package main
 
 import (
 	"fmt"
@@ -16,7 +16,7 @@ var (
 	app *gin.Engine
 )
 
-func registerRouter(r *gin.RouterGroup) {
+func RegisterRouter(r *gin.RouterGroup) {
 	// prepare our store for route caching
 	store := persistence.NewInMemoryStore(time.Second)
 
@@ -54,14 +54,13 @@ func init() {
 	r := app.Group("/")
 
 	// register route
-	registerRouter(r)
+	RegisterRouter(r)
 }
 
-// entrypoint
-func Handler(w http.ResponseWriter, r *http.Request) {
+func main() {
 	// make sure our data is prepped
 	handler.FetchData()
 
-	// serve the app
-	app.ServeHTTP(w, r)
+	// run the app
+	app.Run(":8080")
 }
