@@ -41,6 +41,9 @@ func ErrRouter(c *gin.Context) {
 func init() {
 	app = gin.New()
 
+	// Use the CORS middleware
+	app.Use(handler.Cors)
+
 	// Handling routing errors
 	app.NoRoute(func(c *gin.Context) {
 		sb := &strings.Builder{}

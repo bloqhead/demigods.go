@@ -166,5 +166,9 @@ func FetchCategories(c *gin.Context) {
 
 func Cors(c *gin.Context) {
 	c.Header("Access-Control-Allow-Origin", "*")
+	c.Header("Access-Control-Allow-Methods", "GET")
+	c.Header("Access-Control-Allow-Headers", "Content-Type")
+	c.Header("Content-Type", "application/json")
+	c.Header("Access-Control-Max-Age", "3600")
 	c.Next()
 }
